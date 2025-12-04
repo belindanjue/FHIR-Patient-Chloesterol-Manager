@@ -1,46 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>FHIR Patient Cholesterol Manager</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- FHIR client + Highcharts -->
   <script src="https://cdn.jsdelivr.net/npm/fhirclient/build/fhir-client.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
 
-  <!-- Your JS file with all the functions (addPatient, showPatients, etc.) -->
-  <script src="script.js" defer></script>
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
 
-  <style>
-    table { border-collapse: collapse; margin-top: 1rem; }
-    th, td { border: 1px solid #ddd; padding: 6px 10px; }
-    .action-cell { display: flex; align-items: center; gap: 0.4rem; }
-    .action-select { padding: 4px 8px; }
-    .btn-action { padding: 4px 10px; }
-  </style>
+  <!-- App script -->
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <h1>FHIR Patient Cholesterol Manager</h1>
+  <div class="app-container">
+    <header>
+      <h1>FHIR Patient Cholesterol Manager</h1>
+      <p class="subtitle">
+        Demo app using SMART on FHIR R3 test server (r3.smarthealthit.org)
+      </p>
+    </header>
 
-  <!-- These MUST be real buttons with onclick handlers -->
-  <button type="button" onclick="showPatients()">Search Patients</button>
-  <button type="button" onclick="addPatient()">Add Patient</button>
+    <section class="controls">
+      <button type="button" onclick="showPatients()">Search Patients</button>
+      <button type="button" onclick="addPatient()">Add Patient</button>
+    </section>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Patient ID</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody id="patientResults">
-      <!-- Rows added by addPatientRow() -->
-    </tbody>
-  </table>
+    <section class="table-section">
+      <h2>Patients</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Patient ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="patientResults">
+          <!-- Rows added dynamically by script.js -->
+        </tbody>
+      </table>
+    </section>
 
-  <h2>Cholesterol Chart</h2>
-  <div id="cholesterolChart" style="width:100%; max-width:600px; height:400px;"></div>
+    <section class="chart-section">
+      <h2>Cholesterol Chart</h2>
+      <div
+        id="cholesterolChart"
+        style="width:100%; max-width:800px; height:420px; margin: 0 auto;"
+      ></div>
+    </section>
+  </div>
 </body>
 </html>
