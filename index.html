@@ -1,0 +1,34 @@
+<!-- FHIR client library -->
+  <script src="https://cdn.jsdelivr.net/npm/fhirclient/build/fhir-client.js"></script>
+
+  <!-- Highcharts -->
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+
+
+  <h1>FHIR Patient Cholesterol Manager</h1>
+
+  <div>
+    <button onclick="showPatients()">Search Patients</button>
+    <button onclick="addPatient()">Add Patient</button>
+  </div>
+
+  <hr />
+
+  <table border="1" cellpadding="4" cellspacing="0">
+    <thead>
+      <tr>
+        <th>Patient ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="patientResults"></tbody>
+  </table>
+
+  <!-- Chart container -->
+  <h2>Cholesterol Chart</h2>
+  <div id="cholesterolChart" style="width:100%; max-width:600px; height:400px; margin-top:20px;"></div>
+
+  <!-- If using a separate JS file, include it here -->
+  <!-- <script src="script.js"></script> -->
