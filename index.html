@@ -1,20 +1,32 @@
-<!-- FHIR client library -->
-  <script src="https://cdn.jsdelivr.net/npm/fhirclient/build/fhir-client.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>FHIR Patient Cholesterol Manager</title>
 
-  <!-- Highcharts -->
+  <!-- FHIR client + Highcharts -->
+  <script src="https://cdn.jsdelivr.net/npm/fhirclient/build/fhir-client.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
 
+  <!-- Your JS file with all the functions (addPatient, showPatients, etc.) -->
+  <script src="script.js" defer></script>
 
+  <style>
+    table { border-collapse: collapse; margin-top: 1rem; }
+    th, td { border: 1px solid #ddd; padding: 6px 10px; }
+    .action-cell { display: flex; align-items: center; gap: 0.4rem; }
+    .action-select { padding: 4px 8px; }
+    .btn-action { padding: 4px 10px; }
+  </style>
+</head>
+<body>
   <h1>FHIR Patient Cholesterol Manager</h1>
 
-  <div>
-    <button onclick="showPatients()">Search Patients</button>
-    <button onclick="addPatient()">Add Patient</button>
-  </div>
+  <!-- These MUST be real buttons with onclick handlers -->
+  <button type="button" onclick="showPatients()">Search Patients</button>
+  <button type="button" onclick="addPatient()">Add Patient</button>
 
-  <hr />
-
-  <table border="1" cellpadding="4" cellspacing="0">
+  <table>
     <thead>
       <tr>
         <th>Patient ID</th>
@@ -23,12 +35,12 @@
         <th>Actions</th>
       </tr>
     </thead>
-    <tbody id="patientResults"></tbody>
+    <tbody id="patientResults">
+      <!-- Rows added by addPatientRow() -->
+    </tbody>
   </table>
 
-  <!-- Chart container -->
   <h2>Cholesterol Chart</h2>
-  <div id="cholesterolChart" style="width:100%; max-width:600px; height:400px; margin-top:20px;"></div>
-
-  <!-- If using a separate JS file, include it here -->
-  <!-- <script src="script.js"></script> -->
+  <div id="cholesterolChart" style="width:100%; max-width:600px; height:400px;"></div>
+</body>
+</html>
